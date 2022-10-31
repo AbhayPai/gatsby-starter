@@ -1,0 +1,28 @@
+name: gatsby-starter
+recipe: lamp
+config:
+  webroot: public
+  php: '7.4'
+
+proxy:
+  appserver:
+    - gatsby-starter.lndo.site
+
+services:
+  node:
+    type: node:14
+    build:
+      - "cd /app && yarn install"
+    globals:
+      gatsby-cli: "2.12.62"
+      yarn: "1.22.4"
+
+tooling:
+  npm:
+    service: node
+  node:
+    service: node
+  yarn:
+    service: node
+  gatsby:
+    service: node
