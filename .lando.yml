@@ -1,28 +1,27 @@
 name: gatsby-starter
-recipe: lamp
+
 config:
   webroot: public
-  php: '7.4'
 
 proxy:
   appserver:
     - gatsby-starter.lndo.site
 
 services:
-  node:
+  appserver:
     type: node:14
+    ssl: true
     build:
-      - "cd /app && yarn install"
+      - "cd /app && yarn install && gatsby build"
     globals:
-      gatsby-cli: "2.12.62"
-      yarn: "1.22.4"
+      gatsby-cli: latest
+      yarn: latest
 
 tooling:
-  npm:
-    service: node
-  node:
-    service: node
   yarn:
-    service: node
+    service: appserver
   gatsby:
-    service: node
+    service: appserver
+  gatsby:develop:
+    cmd: gatsby develop --host 0.0.0.0 --port 80
+    service: appserver

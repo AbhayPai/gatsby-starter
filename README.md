@@ -1,6 +1,12 @@
 # Gatsby with lando
 
-1. `lando start`
-2. `lando gatsby build`
-2. `lando gatsby develop`
+1. To initialize this starter project.
+```console
+user@localmachine: lando start
+```
+
+2. To use development mode of gatsby.
+```console
+user@localmachine: lando gatsby:develop
+```
 
