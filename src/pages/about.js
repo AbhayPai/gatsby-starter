@@ -1,12 +1,12 @@
 import React from "react"
 import LayoutPage from "../components/layouts/LayoutPage"
 
-export default function Home() {
+export default function About() {
   return (
     <>
       <LayoutPage>
         <div>
-          <h1>Homes!</h1>
+          <h1>Home!</h1>
         </div>
       </LayoutPage>
     </>

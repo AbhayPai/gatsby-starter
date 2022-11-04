@@ -4,24 +4,27 @@ config:
   webroot: public
 
 proxy:
-  appserver:
+  custom-gatsby:
     - gatsby-starter.lndo.site
 
 services:
-  appserver:
-    type: node:14
+  custom-gatsby:
     ssl: true
-    build:
-      - "cd /app && yarn install && gatsby build"
+    type: node:14
+    scanner: false
     globals:
       gatsby-cli: latest
       yarn: latest
 
+# events:
+  # post-start:
+  #   - custom-gatsby: "cd /app && yarn install && gatsby build"
+
 tooling:
   yarn:
-    service: appserver
+    service: custom-gatsby
   gatsby:
-    service: appserver
+    service: custom-gatsby
   gatsby:develop:
     cmd: gatsby develop --host 0.0.0.0 --port 80
-    service: appserver
+    service: custom-gatsby
