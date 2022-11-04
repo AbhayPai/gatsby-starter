@@ -1,0 +1,15 @@
+.searchWrapper {
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .searchWrapper {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.searchSubmit {
+  top: 0;
+  right: 0;
+  position: absolute;
+}

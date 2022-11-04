@@ -5,6 +5,9 @@
  */
 
 module.exports = {
-  /* Your site config here */
-  plugins: [],
+  siteMetadata: {
+    title: 'gatsby-starter',
+    siteUrl: 'https://abhaypai.github.io/gatsby-starter/',
+    description: 'A simplified bare-bones starter for Gatsby with lando',
+  },
 }

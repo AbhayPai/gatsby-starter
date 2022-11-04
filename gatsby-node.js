@@ -1,4 +1,8 @@
 exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
+  landoCompatibility(getConfig, stage, actions);
+}
+
+landoCompatibility = (getConfig, stage, actions) => {
   if (stage !== "develop") {
     return;
   }
