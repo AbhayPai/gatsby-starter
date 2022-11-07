@@ -8,6 +8,8 @@ import ReferenceMenu from "../menus/ReferenceMenu"
 import "../styles/global.css"
 import * as searchStyles from "../styles/searchWrapper.module.css"
 
+import Logo from "../../images/logo.png"
+
 export default function LayoutPage({ children }) {
   return (
     <>
@@ -32,7 +34,7 @@ export default function LayoutPage({ children }) {
         <nav className="navbar navbar-expand-sm bg-primary navbar-dark">
           <div className="container">
             <Link className="navbar-brand" to="/">
-              <img className="img-fluid" alt="logo" src="https://via.placeholder.com/150x50" />
+              <img className="img-fluid" alt="logo" src={Logo} />
             </Link>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
               <span className="navbar-toggler-icon"></span>
@@ -46,7 +48,7 @@ export default function LayoutPage({ children }) {
 
       <section className="container header-bottom text-center">
         <div className="headline-wrapper py-2">
-          <div className="alert alert-success alert-dismissible">
+          <div className="alert alert-success alert-dismissible mt-2">
             <button type="button" className="btn-close" data-bs-dismiss="alert"><span style={{display: "none"}}>X</span></button>
             <strong>Success!</strong> This alert box could indicate a successful or positive action.
           </div>
