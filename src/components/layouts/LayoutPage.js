@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 
 import MainMenu from "../menus/MainMenu"
 import ShortcutMenu from "../menus/ShortcutMenu"
@@ -11,6 +11,19 @@ import * as searchStyles from "../styles/searchWrapper.module.css"
 import Logo from "../../images/logo.png"
 
 export default function LayoutPage({ children }) {
+  // Using graphql static query hook
+  const customData = useStaticQuery(graphql`
+    query GetSiteTitle {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+
+  const { title } = customData.site.siteMetadata
+
   return (
     <>
       <header>
@@ -34,7 +47,7 @@ export default function LayoutPage({ children }) {
         <nav className="navbar navbar-expand-sm bg-primary navbar-dark">
           <div className="container">
             <Link className="navbar-brand" to="/">
-              <img className="img-fluid" alt="logo" src={Logo} />
+              <img className="img-fluid" alt={title} src={Logo} />
             </Link>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
               <span className="navbar-toggler-icon"></span>
@@ -73,19 +86,15 @@ export default function LayoutPage({ children }) {
           <div className="col-lg-4 col-sm-12">
             <h2>Contacts</h2>
             <p>
-              <i className="bi bi-building"></i>
               <span>Street Names, District Code, Country Name</span>
             </p>
             <p>
-              <i className="bi bi-envelope"></i>
               <span>info@example.com</span>
             </p>
             <p>
-              <i className="bi bi-telephone"></i>
               <span>+ 12 345 678 90</span>
             </p>
             <p>
-              <i className="bi bi-printer"></i>
               <span>+ 09 876 543 21</span>
             </p>
           </div>

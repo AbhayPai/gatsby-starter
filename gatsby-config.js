@@ -6,7 +6,7 @@
 
 module.exports = {
   siteMetadata: {
-    title: 'gatsby-starter',
+    title: 'Gatsby Starter',
     siteUrl: 'https://abhaypai.github.io/gatsby-starter',
     description: 'A simplified bare-bones starter for Gatsby with lando',
   },
